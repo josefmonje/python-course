@@ -1,0 +1,178 @@
+/*
+    Adapted for jupyter-themer from https://github.com/codemirror
+*/
+
+/* Based on Sublime Text's Monokai theme */
+
+.CodeMirror { background: #272822; color: #f8f8f2; }
+.CodeMirror div.CodeMirror-selected { background: #49483E; }
+.CodeMirror .CodeMirror-line::selection, .CodeMirror .CodeMirror-line > span::selection, .CodeMirror .CodeMirror-line > span > span::selection { background: rgba(73, 72, 62, .99); }
+.CodeMirror .CodeMirror-line::-moz-selection, .CodeMirror .CodeMirror-line > span::-moz-selection, .CodeMirror .CodeMirror-line > span > span::-moz-selection { background: rgba(73, 72, 62, .99); }
+.CodeMirror .CodeMirror-gutters { background: #272822; border-right: 0px; }
+.CodeMirror .CodeMirror-guttermarker { color: white; }
+.CodeMirror .CodeMirror-guttermarker-subtle { color: #d0d0d0; }
+.CodeMirror .CodeMirror-linenumber { color: #d0d0d0; }
+.CodeMirror .CodeMirror-cursor { border-left: 1px solid #f8f8f0; }
+
+.CodeMirror span.cm-comment { color: #75715e; }
+.CodeMirror span.cm-atom { color: #ae81ff; }
+.CodeMirror span.cm-number { color: #ae81ff; }
+
+.CodeMirror span.cm-property, .CodeMirror span.cm-attribute { color: #a6e22e; }
+.CodeMirror span.cm-keyword { color: #f92672; }
+.CodeMirror span.cm-string { color: #e6db74; }
+
+.CodeMirror span.cm-variable { color: #a6e22e; }
+.CodeMirror span.cm-variable-2 { color: #9effff; }
+.CodeMirror span.cm-variable-3 { color: #66d9ef; }
+.CodeMirror span.cm-def { color: #fd971f; }
+.CodeMirror span.cm-bracket { color: #f8f8f2; }
+.CodeMirror span.cm-builtin { color: #50D7FA; }
+.CodeMirror span.cm-tag { color: #f92672; }
+.CodeMirror span.cm-header { color: #ae81ff; }
+.CodeMirror span.cm-operator{ color: #ffffff; }
+.CodeMirror span.cm-link { color: #ae81ff; }
+.CodeMirror span.cm-error { background: #f92672; color: #f8f8f0; }
+
+.CodeMirror .CodeMirror-activeline-background { background: #373831; }
+.CodeMirror .CodeMirror-matchingbracket {
+  text-decoration: underline;
+  color: white !important;
+}
+
+#ipython_notebook > a > img{                                                                                        
+    display:block;
+    background: url(klab_cys_logo.png) no-repeat;
+    background-size: cover;
+    width: 205px;
+    height: 36px;
+    padding-left: 205px;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    margin-top: -4px;
+}
+
+#header-container {
+    padding-bottom: 1em !important;
+    padding-top: 1em !important;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+/* Footer */
+
+.footerBott {
+    background-color: #1d2528; 
+    padding: 8px 0;
+    width:100%;
+    height:8x;
+    position:absolute;
+    bottom:0;
+    left:0;
+    z-index: 1000;
+    text-align:center;
+}
+
+.footerSpace {
+    margin-top: 60px;
+    z-index: 1000;
+
+}
+
+#mainFooter {
+    /*position: fixed;*/
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+#footerNav li, #socials li {
+    display: inline-block;
+    z-index: 1000;
+
+}
+
+#footerNav li a {
+    display: block;
+    color: #fff;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    font-size: 12px;
+    padding-right: 5px;
+    margin-right: 1px;
+    border-right: 1px solid white;
+    line-height: 1em;
+    z-index: 1000;
+    text-align: center;
+}
+
+#footerNav li a:hover {
+    color: #1d50a2;
+    z-index: 1000;
+
+}
+
+#footerNav li:last-child a {
+    border-right: none;
+    margin-right: 0;
+    padding-right: 0;
+    z-index: 1000;
+    text-align: center;
+}
+
+.footerMenu {
+    text-align: none;
+    width:700px;
+    margin: 0 auto;
+    z-index: 1000;  
+    text-align: center;
+}
+
+.copyright {
+    text-align:left;
+    margin: 0 auto;
+    z-index: 1000;
+
+}
+
+.copyright p {
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    font-size: 9px;
+    font-weight: 300;
+    color: #424643;
+    margin-top: 0px;
+    display: block;
+    float: none;
+    text-align: center;
+    z-index: 1000;
+    }
+
+#container li {
+    display: block;
+    z-index: 1000;
+}
+
+.powered.by {
+    text-align: right;
+    color: #424643;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    font-size: 10px;
+    font-weight: 300;
+    z-index: 1000;
+    margin-top: -18px;
+    -webkit-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -ms-transition: all 0.4s;
+    transition: all 0.4s;
+    transition: opacity .2s;
+    -webkit-transition: opacity .2s;
+    -moz-transition: opacity .2s;   
+}
+
+.powered.by a {
+    margin-right:35px;
+    z-index: 1000;
+
+}

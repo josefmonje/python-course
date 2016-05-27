@@ -1,0 +1,356 @@
+{% extends "page.html" %}
+
+{% block stylesheet %}
+
+{% if mathjax_url %}
+<script type="text/javascript" src="{{mathjax_url}}?config=TeX-AMS_HTML-full,Safe&delayStartupUntil=configured" charset="utf-8"></script>
+{% endif %}
+<script type="text/javascript">
+// MathJax disabled, set as null to distingish from *missing* MathJax,
+// where it will be undefined, and should prompt a dialog later.
+window.mathjax_url = "{{mathjax_url}}";
+</script>
+
+<link rel="stylesheet" href="{{ static_url("components/bootstrap-tour/build/css/bootstrap-tour.min.css") }}" type="text/css" />
+<link rel="stylesheet" href="{{ static_url("components/codemirror/lib/codemirror.css") }}">
+
+{{super()}}
+
+<link rel="stylesheet" href="{{ static_url("notebook/css/override.css") }}" type="text/css" />
+<link rel="stylesheet" href=""  id='kernel-css'                             type="text/css" />
+
+{% endblock %}
+
+{% block bodyclasses %}notebook_app {{super()}}{% endblock %}
+
+{% block params %}
+
+{{super()}}
+data-base-url="{{base_url | urlencode}}"
+data-ws-url="{{ws_url | urlencode}}"
+data-notebook-name="{{notebook_name | urlencode}}"
+data-notebook-path="{{notebook_path | urlencode}}"
+
+{% endblock %}
+
+
+{% block headercontainer %}
+
+
+<span id="save_widget" class="pull-left save_widget">
+    <span id="notebook_name" class="filename"></span>
+    <span class="checkpoint_status"></span>
+    <span class="autosave_status"></span>
+</span>
+
+<span id="kernel_logo_widget">
+  {% block kernel_logo_widget %}
+   <img class='jupyter_logo' src="data:image/png;base64,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" height='32' width='32'/>
+
+
+  <img class="current_kernel_logo" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"/>
+  {% endblock %}
+</span>
+
+{% endblock headercontainer %}
+
+{% block header %}
+<div id="menubar-container" class="container">
+<div id="menubar">
+    <div id="menus" class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+            <button type="button" class="btn btn-default navbar-btn navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <i class="fa fa-bars"></i>
+              <span class="navbar-text">Menu</span>
+            </button>
+            <p id="kernel_indicator" class="navbar-text indicator_area">
+              <span class="kernel_indicator_name">Kernel</span>
+              <i id="kernel_indicator_icon"></i>
+            </p>
+            <i id="readonly-indicator" class="navbar-text" title='This notebook is read-only'>
+                <span class="fa-stack">
+                    <i class="fa fa-save fa-stack-1x"></i>
+                    <i class="fa fa-ban fa-stack-2x text-danger"></i>
+                </span>
+            </i>
+            <i id="modal_indicator" class="navbar-text"></i>
+            <span id="notification_area"></span>
+            <div class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">File</a>
+                    <ul id="file_menu" class="dropdown-menu">
+                        <li id="new_notebook" class="dropdown-submenu">
+                            <a href="#">New Notebook</a>
+                            <ul class="dropdown-menu" id="menu-new-notebook-submenu"></ul>
+                        </li>
+                        <li id="open_notebook"
+                            title="Opens a new window with the Dashboard view">
+                            <a href="#">Open...</a></li>
+                        <!-- <hr/> -->
+                        <li class="divider"></li>
+                        <li id="copy_notebook"
+                            title="Open a copy of this notebook's contents and start a new kernel">
+                            <a href="#">Make a Copy...</a></li>
+                        <li id="rename_notebook"><a href="#">Rename...</a></li>
+                        <li id="save_checkpoint"><a href="#">Save and Checkpoint</a></li>
+                        <!-- <hr/> -->
+                        <li class="divider"></li>
+                        <li id="restore_checkpoint" class="dropdown-submenu"><a href="#">Revert to Checkpoint</a>
+                          <ul class="dropdown-menu">
+                            <li><a href="#"></a></li>
+                            <li><a href="#"></a></li>
+                            <li><a href="#"></a></li>
+                            <li><a href="#"></a></li>
+                            <li><a href="#"></a></li>
+                          </ul>
+                        </li>
+                        <li class="divider"></li>
+                        <li id="print_preview"><a href="#">Print Preview</a></li>
+                        <li class="dropdown-submenu"><a href="#">Download as</a>
+                            <ul class="dropdown-menu">
+                                <li id="download_ipynb"><a href="#">IPython Notebook (.ipynb)</a></li>
+                                <li id="download_script"><a href="#">Script</a></li>
+                                <li id="download_html"><a href="#">HTML (.html)</a></li>
+                                <li id="download_markdown"><a href="#">Markdown (.md)</a></li>
+                                <li id="download_rst"><a href="#">reST (.rst)</a></li>
+                                <li id="download_pdf"><a href="#">PDF via LaTeX (.pdf)</a></li>
+                            </ul>
+                        </li>
+                        <li class="divider"></li>
+                        <li id="trust_notebook"
+                            title="Trust the output of this notebook">
+                            <a href="#" >Trust Notebook</a></li>
+                        <li class="divider"></li>
+                        <li id="kill_and_exit"
+                            title="Shutdown this notebook's kernel, and close this window">
+                            <a href="#" >Close and Halt</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Edit</a>
+                    <ul id="edit_menu" class="dropdown-menu">
+                        <li id="cut_cell"><a href="#">Cut Cells</a></li>
+                        <li id="copy_cell"><a href="#">Copy Cells</a></li>
+                        <li id="paste_cell_above" class="disabled"><a href="#">Paste Cells Above</a></li>
+                        <li id="paste_cell_below" class="disabled"><a href="#">Paste Cells Below</a></li>
+                        <li id="paste_cell_replace" class="disabled"><a href="#">Paste Cells &amp; Replace</a></li>
+                        <li id="delete_cell"><a href="#">Delete Cells</a></li>
+                        <li id="undelete_cell" class="disabled"><a href="#">Undo Delete Cells</a></li>
+                        <li class="divider"></li>
+                        <li id="split_cell"><a href="#">Split Cell</a></li>
+                        <li id="merge_cell_above"><a href="#">Merge Cell Above</a></li>
+                        <li id="merge_cell_below"><a href="#">Merge Cell Below</a></li>
+                        <li class="divider"></li>
+                        <li id="move_cell_up"><a href="#">Move Cell Up</a></li>
+                        <li id="move_cell_down"><a href="#">Move Cell Down</a></li>
+                        <li class="divider"></li>
+                        <li id="edit_nb_metadata"><a href="#">Edit Notebook Metadata</a></li>
+                        <li class="divider"></li>
+                        <li id="find_and_replace"><a href="#"> Find and Replace </a></li>
+                    </ul>
+                </li>
+                <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">View</a>
+                    <ul id="view_menu" class="dropdown-menu">
+                        <li id="toggle_header"
+                            title="Show/Hide the IPython Notebook logo and notebook title (above menu bar)">
+                            <a href="#">Toggle Header</a></li>
+                        <li id="toggle_toolbar"
+                            title="Show/Hide the action icons (below menu bar)">
+                            <a href="#">Toggle Toolbar</a></li>
+                        <li id="menu-cell-toolbar" class="dropdown-submenu">
+                            <a href="#">Cell Toolbar</a>
+                            <ul class="dropdown-menu" id="menu-cell-toolbar-submenu"></ul>
+                        </li>
+                    </ul>
+                </li>
+                <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Insert</a>
+                    <ul id="insert_menu" class="dropdown-menu">
+                        <li id="insert_cell_above"
+                            title="Insert an empty Code cell above the currently active cell">
+                            <a href="#">Insert Cell Above</a></li>
+                        <li id="insert_cell_below"
+                            title="Insert an empty Code cell below the currently active cell">
+                            <a href="#">Insert Cell Below</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Cell</a>
+                    <ul id="cell_menu" class="dropdown-menu">
+                        <li id="run_cell" title="Run this cell, and move cursor to the next one">
+                            <a href="#">Run Cells</a></li>
+                        <li id="run_cell_select_below" title="Run this cell, select below">
+                            <a href="#">Run Cells and Select Below</a></li>
+                        <li id="run_cell_insert_below" title="Run this cell, insert below">
+                            <a href="#">Run Cells and Insert Below</a></li>
+                        <li id="run_all_cells" title="Run all cells in the notebook">
+                            <a href="#">Run All</a></li>
+                        <li id="run_all_cells_above" title="Run all cells above (but not including) this cell">
+                            <a href="#">Run All Above</a></li>
+                        <li id="run_all_cells_below" title="Run this cell and all cells below it">
+                            <a href="#">Run All Below</a></li>
+                        <li class="divider"></li>
+                        <li id="change_cell_type" class="dropdown-submenu"
+                            title="All cells in the notebook have a cell type. By default, new cells are created as 'Code' cells">
+                            <a href="#">Cell Type</a>
+                            <ul class="dropdown-menu">
+                              <li id="to_code"
+                                  title="Contents will be sent to the kernel for execution, and output will display in the footer of cell">
+                                  <a href="#">Code</a></li>
+                              <li id="to_markdown"
+                                  title="Contents will be rendered as HTML and serve as explanatory text">
+                                  <a href="#">Markdown</a></li>
+                              <li id="to_raw"
+                                  title="Contents will pass through nbconvert unmodified">
+                                  <a href="#">Raw NBConvert</a></li>
+                            </ul>
+                        </li>
+                        <li class="divider"></li>
+                        <li id="current_outputs" class="dropdown-submenu"><a href="#">Current Outputs</a>
+                            <ul class="dropdown-menu">
+                                <li id="toggle_current_output"
+                                    title="Hide/Show the output of the current cell">
+                                    <a href="#">Toggle</a>
+                                </li>
+                                <li id="toggle_current_output_scroll"
+                                    title="Scroll the output of the current cell">
+                                    <a href="#">Toggle Scrolling</a>
+                                </li>
+                                <li id="clear_current_output"
+                                    title="Clear the output of the current cell">
+                                    <a href="#">Clear</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li id="all_outputs" class="dropdown-submenu"><a href="#">All Output</a>
+                            <ul class="dropdown-menu">
+                                <li id="toggle_all_output"
+                                    title="Hide/Show the output of all cells">
+                                    <a href="#">Toggle</a>
+                                </li>
+                                <li id="toggle_all_output_scroll"
+                                    title="Scroll the output of all cells">
+                                    <a href="#">Toggle Scrolling</a>
+                                </li>
+                                <li id="clear_all_output"
+                                    title="Clear the output of all cells">
+                                    <a href="#">Clear</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Kernel</a>
+                    <ul id="kernel_menu" class="dropdown-menu">
+                        <li id="int_kernel"
+                            title="Send KeyboardInterrupt (CTRL-C) to the Kernel">
+                            <a href="#">Interrupt</a>
+                        </li>
+                        <li id="restart_kernel"
+                            title="Restart the Kernel">
+                            <a href="#">Restart</a>
+                        </li>
+                        <li id="restart_clear_output"
+                            title="Restart the Kernel and clear all output">
+                            <a href="#">Restart &amp; Clear Output</a>
+                        </li>
+                        <li id="restart_run_all"
+                            title="Restart the Kernel and re-run the notebook">
+                            <a href="#">Restart &amp; Run All</a>
+                        </li>
+                        <li id="reconnect_kernel"
+                            title="Reconnect to the Kernel">
+                            <a href="#">Reconnect</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li id="menu-change-kernel" class="dropdown-submenu">
+                            <a href="#">Change kernel</a>
+                            <ul class="dropdown-menu" id="menu-change-kernel-submenu"></ul>
+                        </li>
+                    </ul>
+                </li>
+                <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Help</a>
+                    <ul  id="help_menu" class="dropdown-menu">
+                        {% block help %}
+                        <li id="notebook_tour" title="A quick tour of the notebook user interface"><a href="#">User Interface Tour</a></li>
+                        <li id="keyboard_shortcuts" title="Opens a tooltip with all keyboard shortcuts"><a href="#">Keyboard Shortcuts</a></li>
+                        <li class="divider"></li>
+                        {% set
+                            sections = (
+                                (
+                                    ("http://nbviewer.ipython.org/github/ipython/ipython/blob/3.x/examples/Notebook/Index.ipynb", "Notebook Help", True),
+                                    ("https://help.github.com/articles/markdown-basics/","Markdown",True),
+                                ),
+                            )
+                        %}
+
+                        {% for helplinks in sections %}
+                            {% for link in helplinks %}
+                                <li><a rel="noreferrer" href="{{link[0]}}" target="{{'_blank' if link[2]}}" title="{{'Opens in a new window' if link[2]}}">
+                                {% if link[2] %}
+                                    <i class="fa fa-external-link menu-icon pull-right"></i>
+                                {% endif %}
+
+                                {{link[1]}}
+                                </a></li>
+                            {% endfor %}
+                            {% if not loop.last %}
+                                <li class="divider"></li>
+                            {% endif %}
+                        {% endfor %}
+                        <li class="divider"></li>
+                        <li title="About IPython Notebook"><a id="notebook_about" href="#">About</a></li>
+                        {% endblock %}
+                    </ul>
+                </li>
+              </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="maintoolbar" class="navbar">
+  <div class="toolbar-inner navbar-inner navbar-nobg">
+    <div id="maintoolbar-container" class="container"></div>
+  </div>
+</div>
+</div>
+
+<div class="lower-header-bar"></div>
+{% endblock header %}
+
+{% block site %}
+
+<div id="ipython-main-app">
+    <div id="notebook_panel">
+        <div id="notebook"></div>
+        <div id='tooltip' class='ipython_tooltip' style='display:none'></div>
+    </div>
+</div>
+
+
+{% endblock %}
+
+{% block after_site %}
+
+<div id="pager">
+    <div id="pager-contents">
+        <div id="pager-container" class="container"></div>
+    </div>
+    <div id='pager-button-area'></div>
+</div>
+
+{% endblock %}
+
+{% block script %}
+{{super()}}
+<script type="text/javascript">
+    sys_info = {{sys_info|safe}};
+</script>
+
+<script src="{{ static_url("components/text-encoding/lib/encoding.js") }}" charset="utf-8"></script>
+
+{% if ignore_minified_js %}
+    <script src="{{ static_url("notebook/js/main.js") }}" type="text/javascript" charset="utf-8"></script>
+{% else %}
+    <script src="{{ static_url("notebook/js/main.min.js") }}" type="text/javascript" charset="utf-8"></script>
+{% endif %}
+
+{% endblock %}
