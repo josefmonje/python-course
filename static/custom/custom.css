@@ -40,6 +40,8 @@
   color: white !important;
 }
 
+/* KLab Cyscorpions Logo */
+
 #ipython_notebook > a > img{                                                                                        
     display:block;
     background: url(klab_cys_logo.png) no-repeat;
@@ -60,57 +62,61 @@
     -webkit-box-sizing: border-box;
 }
 
+#new-terminal {
+    display: none;
+}
+
 /* Footer */
 
 .footerBott {
     background-color: #1d2528; 
-    padding: 8px 0;
-    width:100%;
-    height:8x;
-    position:absolute;
-    bottom:0;
-    left:0;
-    z-index: 1000;
-    text-align:center;
+    padding: 40px 0;
+    width: 100%;
+    height: 120px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    text-align: center; 
+}
+
+.notebook_footer {
+    background-color: #1d2528; 
+    padding: 40px 0;
+    width: 100%;
+    height: 120px;
+    bottom: 0;
+    left: 0;
+    text-align: center; 
 }
 
 .footerSpace {
     margin-top: 60px;
-    z-index: 1000;
-
 }
 
 #mainFooter {
-    /*position: fixed;*/
-    bottom: 0;
+    position: fixed;
     left: 0;
     width: 100%;
-    z-index: 1000;
 }
 
 #footerNav li, #socials li {
     display: inline-block;
-    z-index: 1000;
-
 }
 
 #footerNav li a {
     display: block;
     color: #fff;
     font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
-    font-size: 12px;
+    font-size: 14px;
     padding-right: 5px;
     margin-right: 1px;
     border-right: 1px solid white;
     line-height: 1em;
-    z-index: 1000;
     text-align: center;
 }
 
 #footerNav li a:hover {
     color: #1d50a2;
-    z-index: 1000;
-
 }
 
 #footerNav li:last-child a {
@@ -124,33 +130,28 @@
 .footerMenu {
     text-align: none;
     width:700px;
-    margin: 0 auto;
-    z-index: 1000;  
+    margin: 0 auto; 
     text-align: center;
 }
 
 .copyright {
     text-align:left;
     margin: 0 auto;
-    z-index: 1000;
-
 }
 
 .copyright p {
     font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
-    font-size: 9px;
+    font-size: 12px;
     font-weight: 300;
     color: #424643;
     margin-top: 0px;
     display: block;
     float: none;
     text-align: center;
-    z-index: 1000;
     }
 
 #container li {
     display: block;
-    z-index: 1000;
 }
 
 .powered.by {
@@ -159,20 +160,9 @@
     font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
     font-size: 10px;
     font-weight: 300;
-    z-index: 1000;
     margin-top: -18px;
-    -webkit-transition: all 0.4s;
-    -moz-transition: all 0.4s;
-    -o-transition: all 0.4s;
-    -ms-transition: all 0.4s;
-    transition: all 0.4s;
-    transition: opacity .2s;
-    -webkit-transition: opacity .2s;
-    -moz-transition: opacity .2s;   
 }
 
 .powered.by a {
-    margin-right:35px;
-    z-index: 1000;
-
+    margin-right: 35px;
 }
