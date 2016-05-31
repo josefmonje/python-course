@@ -1,7 +1,0 @@
-jupyter==1.0.0
-virtualenvwrapper==4.7.1
-requests==2.10.0
-SQLAlchemy==1.0.13
-peewee==2.8.1
-Flask==0.10.1
-Django==1.9.6
