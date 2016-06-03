@@ -79,6 +79,16 @@
     display:block;
 }
 
+.notebook_footer {
+    background-color: #1d2528; 
+    padding: 40px 0;
+    width: 100%;
+    height: 120px;
+    bottom: 0;
+    left: 0;
+    text-align: center; 
+}
+
 .footerSpace {
     margin-top: 60px;
 }
