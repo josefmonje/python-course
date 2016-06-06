@@ -1,8 +1,5 @@
 {% extends "page.html" %}
 
-{-% block title %}{{page_title}}{% endblock %-}
-
-
 {% block params %}
 {{super()}}
 data-base-url="{{base_url | urlencode}}"
