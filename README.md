@@ -2,7 +2,7 @@
 
 ![KLab Cyscorpions](./cyscorpions_logo.png)
 
-> [Python Course Site](http://python.cyscorpions.com/) [Github](https://github.com/KLabCyscorpions/python-course) [Twitter](https://twitter.com/klabcyscorpions) [Instagram](https://instagram.com/klabcyscorpions/) [KLab Cyscorpions](http://www.cyscorpions.com)
+> [Python Course Site](http://python.cyscorpions.com/) | [Github](https://github.com/KLabCyscorpions/python-course) | [Facebook](https://www.facebook.com/Cyscorpions) | [Twitter](https://twitter.com/klabcyscorpions) | [Instagram](https://instagram.com/klabcyscorpions/) | [KLab Cyscorpions](http://www.cyscorpions.com)
 
 Feb 1, 2016
 
