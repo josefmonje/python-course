@@ -20,7 +20,7 @@ You will be redirected to your own Python Course server. Choose a course, and yo
 
 Course servers are __temporary__. Every few minutes, idle servers are disposed and a new one is made to replace it.
 
-Course servers are __limited__. We monitor and adjust the capacity of the service. Right now it's capacity is 25 users.
+Course servers are __limited__. We monitor and adjust the capacity of the service. Right now it's capacity is 20 users.
 
 ## OPTION 2: CLONE OUR GITHUB REPOSITORY
 
