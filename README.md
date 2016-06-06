@@ -14,7 +14,7 @@ We welcome pull requests! We'll also appreciate if you give the repository a sta
 
 You have two options in accessing the notebooks:
 
-OPTION 1: GO TO THE COURSE WEBSITE
+## OPTION 1: GO TO THE COURSE WEBSITE
 
 You will be redirected to your own Python Course server. Choose a course, and you're ready to go. This is recommended for beginners because no installations are necessary.
 
@@ -22,13 +22,13 @@ Course servers are __temporary__. Every few minutes, idle servers are disposed a
 
 Course servers are __limited__. We monitor and adjust the capacity of the service. Right now it's capacity is set to 25 users.
 
-OPTION 2: CLONE OUR GITHUB REPOSITORY
+## OPTION 2: CLONE OUR GITHUB REPOSITORY
 
 There are a few prerequisites: 
-A. Git
-B. Python 3
-C. Pip
-D. Jupyter
+* Git
+* Python 3
+* Pip
+* Jupyter
 
 This may take a few minutes to set up, but the good thing about this option is that you're going to have a copy of the notebooks on your own computer. That means you'll be able to save your progress unlike the web version. This is recommended for more experienced users.
 
