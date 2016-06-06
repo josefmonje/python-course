@@ -2,6 +2,8 @@
 
 ![KLab Cyscorpions](./cyscorpions_logo.png)
 
+> `http://python.cyscorpions.com/` `https://github.com/KLabCyscorpions/python-course` `https://twitter.com/klabcyscorpions` `https://instagram.com/klabcyscorpions/` `http://www.cyscorpions.com`
+
 Feb 1, 2016
 
 These Jupyter notebooks serve as the Klab Cyscorpions Python Course. We are making them publicly available for anyone interested in learning Python. Feel free to clone or fork the repo for your own use. If you're not a programmer, you'll still find it easy to follow but there may be some things that require some research on your part.
