@@ -6,19 +6,33 @@
 
 Feb 1, 2016
 
-These Jupyter notebooks serve as the Klab Cyscorpions Python Course. We are making them publicly available for anyone interested in learning Python. Feel free to clone or fork the repo for your own use. If you're not a programmer, you'll still find it easy to follow but there may be some things that require some research on your part.
+Welcome to our Python Course Notebooks. These are a set of FREE interactive notebook tutorials for anyone interested to learn the Python programming language. The notebooks include interactive code and exercises from beginner up to advanced level, plus tutorials on Flask and Django web development frameworks.
 
-If you feel that something can be improved, please open an issue with the notebook name in the title for easy identification.
+You are welcome to use these notebooks whether you are new to programming or just new to Python. Become the software engineer you always wanted to be!
 
 We welcome pull requests! We'll also appreciate if you give the repository a star :)
 
-The requirements for using these notebooks are:
+You have two options in accessing the notebooks:
 
-* Python 3.x
-* pip
-* Jupyter
-* git
+OPTION 1: GO TO THE COURSE WEBSITE
 
+You will be redirected to your own Python Course server. Choose a course, and you're ready to go. This is recommended for beginners because no installations are necessary.
+
+Course servers are __temporary__. Every few minutes, idle servers are disposed and a new one is made to replace it.
+
+Course servers are __limited__. We monitor and adjust the capacity of the service. Right now it's capacity is set to 25 users.
+
+OPTION 2: CLONE OUR GITHUB REPOSITORY
+
+There are a few prerequisites: 
+A. Git
+B. Python 3
+C. Pip
+D. Jupyter
+
+This may take a few minutes to set up, but the good thing about this option is that you're going to have a copy of the notebooks on your own computer. That means you'll be able to save your progress unlike the web version. This is recommended for more experienced users.
+
+-----
 
 ## Python
 
