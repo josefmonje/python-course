@@ -70,6 +70,15 @@
     visibility: hidden;
 }
 
+.list_header > div input, .list_item > div input {
+    margin-right: -15px;
+    visibility: hidden;
+}
+
+#project_name {
+  margin-left: -70px;  
+}
+
 /* Footer */
 
 .footerBott {
