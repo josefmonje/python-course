@@ -62,8 +62,12 @@
     -webkit-box-sizing: border-box;
 }
 
-#new-terminal {
-    display: none;
+.alternate_upload .btn-upload {
+    visibility: hidden;
+}
+
+.btn-group, .btn-group-vertical {
+    visibility: hidden;
 }
 
 /* Footer */
