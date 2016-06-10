@@ -62,6 +62,8 @@
     -webkit-box-sizing: border-box;
 }
 
+/* Buttons */
+
 .alternate_upload .btn-upload {
     visibility: hidden;
 }
@@ -77,6 +79,14 @@
 
 #project_name {
   margin-left: -70px;  
+}
+
+#accordion > div:nth-child(1) {
+    display: none;
+}
+
+.clusters_tab_link {
+    visibility: hidden;
 }
 
 /* Footer */
