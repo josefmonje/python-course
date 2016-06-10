@@ -65,20 +65,19 @@
 /* Buttons */
 
 .alternate_upload .btn-upload {
-    visibility: hidden;
+    display: none;
 }
 
 .btn-group, .btn-group-vertical {
-    visibility: hidden;
+    display: none;
 }
 
 .list_header > div input, .list_item > div input {
-    margin-right: -15px;
-    visibility: hidden;
+    display: none;
 }
 
 #project_name {
-  margin-left: -70px;  
+  margin-left: 6px;  
 }
 
 #accordion > div:nth-child(1) {
@@ -87,6 +86,10 @@
 
 .clusters_tab_link {
     visibility: hidden;
+}
+
+#notebook_toolbar > div.col-sm-8.no-padding {
+    display: none;
 }
 
 /* Footer */
