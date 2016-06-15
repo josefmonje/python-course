@@ -62,13 +62,19 @@
     -webkit-box-sizing: border-box;
 }
 
-/* Buttons */
-
 .alternate_upload .btn-upload {
     display: none;
 }
 
-.btn-group, .btn-group-vertical {
+#new-buttons > button {
+    display: none;
+}
+
+#refresh_notebook_list {
+    display: none;
+}
+
+#new-buttons > button > span:nth-child(1) {
     display: none;
 }
 
