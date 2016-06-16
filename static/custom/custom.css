@@ -98,6 +98,17 @@
     display: none;
 }
 
+#button-select-all {
+    display: none;
+}
+
+#tree-selector-btn {
+    display: none;
+}
+
+#save-notbook > button {
+    display: none;
+}
 /* Footer */
 
 .footerBott {
