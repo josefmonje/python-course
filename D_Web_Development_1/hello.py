@@ -14,7 +14,7 @@ def hello_world():
 @app.route('/<name>')
 def hello_name(name):
     """Respond with a Hello name variable in a string with a link."""
-    return 'Hello <a href="{}">{}! '.format(url_for('hello_marquee', name=name), name.capitalize())
+    return 'Hello <a href="{0}">{1}! '.format(url_for('hello_marquee', name=name), name.capitalize())
 
 
 @app.route('/<name>/')
@@ -36,8 +36,8 @@ def hello_marquee(name):
 @app.route('/error')
 def error():
     """Return nothing. Responds with the debugger screen."""
-    return
     # return redirect(url_for('hello_world'))
+    return
 
 
 class API(MethodView):
